@@ -9,6 +9,7 @@ UPSTREAM_REPO_PATH="../melanie/packages/webhook-schema"
 rsync -av --delete "$UPSTREAM_REPO_PATH/src/." "src/."
 rsync -av --delete \
 	"$UPSTREAM_REPO_PATH/CHANGELOG.md" \
+	"$UPSTREAM_REPO_PATH/LICENSE" \
 	"$UPSTREAM_REPO_PATH/package.json" \
 	"$UPSTREAM_REPO_PATH/README.md" \
 	"$UPSTREAM_REPO_PATH/tsconfig.json" \
