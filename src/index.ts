@@ -3,7 +3,7 @@
 import * as z from "zod";
 
 // #region WebHook
-export const WebhookRequest = z.object({
+export const WebhookRequestSchema = z.object({
 	tenant_id: z.uuid()
                 .describe('The tenant ID of the event'),
 	ref_id: z.uuid()
@@ -16,12 +16,12 @@ export const WebhookRequest = z.object({
 		.describe('The trace ID for correlating logs and telemetry related to this event'),
 })
 	  .describe('Webhook request schema');
-export type WebhookRequest = z.infer<typeof WebhookRequest>;
+export type WebhookRequest = z.infer<typeof WebhookRequestSchema>;
 
-export const WebhookProgress = z.null()
+export const WebhookProgressSchema = z.null()
 	  .describe('Webhook progress schema');
-export type WebhookProgress = z.infer<typeof WebhookProgress>;
+export type WebhookProgress = z.infer<typeof WebhookProgressSchema>;
 
-export const WebhookResponse = z.object({})
+export const WebhookResponseSchema = z.object({})
 	  .describe('Webhook response schema');
-export type WebhookResponse = z.infer<typeof WebhookResponse>;
+export type WebhookResponse = z.infer<typeof WebhookResponseSchema>;
