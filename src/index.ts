@@ -1,6 +1,7 @@
 // vim: tabstop=8 softtabstop=0 noexpandtab shiftwidth=8 nosmarttab
 
 import * as z from "zod";
+import { dsbunnyRegistry } from '@dsbunny/zod-registry';
 
 // #region WebHook
 export const WebhookRequestSchema = z.object({
@@ -14,14 +15,20 @@ export const WebhookRequestSchema = z.object({
 		.describe('The type of the event'),
 	trace_id: z.string().optional()
 		.describe('The trace ID for correlating logs and telemetry related to this event'),
-})
-	  .describe('Webhook request schema');
+}).register(dsbunnyRegistry, {
+	id: 'WebhookRequestSchema',
+	description: 'Webhook request schema',
+});
 export type WebhookRequest = z.infer<typeof WebhookRequestSchema>;
 
-export const WebhookProgressSchema = z.null()
-	  .describe('Webhook progress schema');
+export const WebhookProgressSchema = z.null().register(dsbunnyRegistry, {
+	id: 'WebhookProgressSchema',
+	description: 'Webhook progress schema',
+});
 export type WebhookProgress = z.infer<typeof WebhookProgressSchema>;
 
-export const WebhookResponseSchema = z.object({})
-	  .describe('Webhook response schema');
+export const WebhookResponseSchema = z.object({}).register(dsbunnyRegistry, {
+	id: 'WebhookResponseSchema',
+	description: 'Webhook response schema',
+});
 export type WebhookResponse = z.infer<typeof WebhookResponseSchema>;

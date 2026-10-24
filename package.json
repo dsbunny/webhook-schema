@@ -1,6 +1,6 @@
 {
 	"name": "@dsbunny/webhook-schema",
-	"version": "2.0.1",
+	"version": "2.1.2",
 	"description": "Schema for Webhook requests and Responses",
 	"type": "module",
 	"main": "dist/index.js",
@@ -16,10 +16,12 @@
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"devDependencies": {
+		"@dsbunny/zod-registry": "github:dsbunny/zod-registry#35c7ef6",
 		"typescript": "^5.9.3",
 		"zod": "^4.3.6"
 	},
 	"peerDependencies": {
+		"@dsbunny/zod-registry": "github:dsbunny/zod-registry",
 		"zod": "^4.0.0"
 	}
 }
