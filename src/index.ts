@@ -5,6 +5,8 @@ import { dsbunnyRegistry } from '@dsbunny/zod-registry';
 
 // #region WebHook
 export const WebhookRequestSchema = z.object({
+	'@type': z.literal('WebhookRequest')
+		.describe('Type of the webhook request'),
 	tenant_id: z.uuid()
                 .describe('The tenant ID of the event'),
 	ref_id: z.uuid()
@@ -21,13 +23,19 @@ export const WebhookRequestSchema = z.object({
 });
 export type WebhookRequest = z.infer<typeof WebhookRequestSchema>;
 
-export const WebhookProgressSchema = z.null().register(dsbunnyRegistry, {
+export const WebhookProgressSchema = z.object({
+	'@type': z.literal('WebhookProgress')
+		.describe('Type of the webhook progress'),
+}).register(dsbunnyRegistry, {
 	id: 'WebhookProgressSchema',
 	description: 'Webhook progress schema',
 });
 export type WebhookProgress = z.infer<typeof WebhookProgressSchema>;
 
-export const WebhookResponseSchema = z.object({}).register(dsbunnyRegistry, {
+export const WebhookResponseSchema = z.object({
+	'@type': z.literal('WebhookResponse')
+		.describe('Type of the webhook response'),
+}).register(dsbunnyRegistry, {
 	id: 'WebhookResponseSchema',
 	description: 'Webhook response schema',
 });
