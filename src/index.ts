@@ -1,4 +1,5 @@
 // vim: tabstop=8 softtabstop=0 noexpandtab shiftwidth=8 nosmarttab
+// `@type` field is optional for requests with no other required fields.
 
 import * as z from "zod";
 import { dsbunnyRegistry } from '@dsbunny/zod-registry';
@@ -13,8 +14,6 @@ export const WebhookRequestSchema = z.object({
 		.describe('The reference ID of the source of the event'),
 	class: z.string()
 		.describe('The class of the event'),
-	type: z.string()
-		.describe('The type of the event'),
 	trace_id: z.string().optional()
 		.describe('The trace ID for correlating logs and telemetry related to this event'),
 }).register(dsbunnyRegistry, {

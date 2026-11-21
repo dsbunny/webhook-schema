@@ -1,6 +1,7 @@
 # Changelog
 ## v3.0.3
 - Add `@type` fields to all schemas to enable discovery.
+- Remove `type` field to enable conflation.
 
 ## v2.1.2
 - Add `id` _ZOD_ metadata for schemas.
