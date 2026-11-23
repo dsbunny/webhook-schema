@@ -1,6 +1,6 @@
 import * as z from "zod";
 export declare const WebhookRequestSchema: z.ZodObject<{
-    '@type': z.ZodLiteral<"WebhookRequest">;
+    '@type': z.ZodDefault<z.ZodString>;
     tenant_id: z.ZodUUID;
     ref_id: z.ZodUUID;
     class: z.ZodString;

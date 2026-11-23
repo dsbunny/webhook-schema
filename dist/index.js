@@ -4,7 +4,7 @@ import * as z from "zod";
 import { dsbunnyRegistry } from '@dsbunny/zod-registry';
 // #region WebHook
 export const WebhookRequestSchema = z.object({
-    '@type': z.literal('WebhookRequest')
+    '@type': z.string().default('WebhookRequest')
         .describe('Type of the webhook request'),
     tenant_id: z.uuid()
         .describe('The tenant ID of the event'),
